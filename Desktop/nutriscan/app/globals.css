@@ -1,0 +1,257 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Soft Health-Tech Color Palette */
+  --color-health-cyan: #00d9ff;
+  --color-health-teal: #00ffc8;
+  --color-health-blue: #4dd0e1;
+  --color-dark-bg: #0a0e1a;
+  --color-darker-bg: #060811;
+  --color-card-bg: #131825;
+  
+  /* Base colors */
+  --color-background: var(--color-dark-bg);
+  --color-foreground: #e0f2f7;
+  --color-card: var(--color-card-bg);
+  --color-card-foreground: #e0f2f7;
+  --color-primary: var(--color-health-cyan);
+  --color-primary-foreground: #0a0e1a;
+  --color-secondary: var(--color-health-teal);
+  --color-secondary-foreground: #0a0e1a;
+  --color-muted: #1e2739;
+  --color-muted-foreground: #8b9dc3;
+  --color-accent: var(--color-health-cyan);
+  --color-accent-foreground: #0a0e1a;
+  --color-destructive: #ff4757;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #1e2739;
+  --color-input: #1e2739;
+  --color-ring: var(--color-health-cyan);
+  
+  /* Radius */
+  --radius: 0.75rem;
+  
+  /* Fonts */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Soft Animated Gradient Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(0, 255, 200, 0.06) 0%, transparent 50%),
+              linear-gradient(180deg, var(--color-darker-bg) 0%, var(--color-dark-bg) 100%);
+  animation: breathe 8s ease-in-out infinite;
+  z-index: -2;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Subtle DNA Helix Pattern */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(0, 217, 255, 0.02) 100px, rgba(0, 217, 255, 0.02) 102px),
+    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(0, 255, 200, 0.02) 100px, rgba(0, 255, 200, 0.02) 102px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Soft Glow Effects */
+.glow-text {
+  text-shadow: 
+    0 0 20px rgba(0, 217, 255, 0.3),
+    0 0 40px rgba(0, 217, 255, 0.2),
+    0 0 60px rgba(0, 217, 255, 0.1);
+}
+
+.glow-text-soft {
+  text-shadow: 
+    0 0 10px rgba(0, 217, 255, 0.2),
+    0 0 20px rgba(0, 217, 255, 0.1);
+}
+
+/* Health Pulse Animation */
+@keyframes healthPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.health-pulse {
+  animation: healthPulse 2s ease-in-out infinite;
+}
+
+/* Heartbeat Effect */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* Soft Ripple Effect */
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4),
+                0 0 0 10px rgba(0, 217, 255, 0.3),
+                0 0 0 20px rgba(0, 217, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 217, 255, 0.3),
+                0 0 0 20px rgba(0, 217, 255, 0.2),
+                0 0 0 40px rgba(0, 217, 255, 0);
+  }
+}
+
+.ripple {
+  animation: ripple 2s ease-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Scanning Line Effect */
+@keyframes scan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.scanning-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-health-cyan), transparent);
+  animation: scan 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* DNA Strand Animation */
+@keyframes dnaRotate {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.dna-strand {
+  animation: dnaRotate 20s linear infinite;
+  transform-style: preserve-3d;
+}
+
+/* Soft Particle Effect */
+@keyframes particle-float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-200px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-health-cyan);
+  border-radius: 50%;
+  animation: particle-float 4s ease-in infinite;
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+/* Wave Effect */
+@keyframes wave {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.3);
+  }
+}
+
+.wave {
+  animation: wave 1.5s ease-in-out infinite;
+}
