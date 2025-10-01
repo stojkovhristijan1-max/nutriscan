@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function IntroPage() {
   return (
-    <div className="min-h-[85vh] flex items-center justify-center py-8">
+    <div className="min-h-[85vh] flex items-center justify-center py-4 md:py-8 px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -18,23 +18,23 @@ export default function IntroPage() {
           {/* Animated Border Effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-health-cyan)]/10 to-[var(--color-health-teal)]/10 opacity-50" />
           
-          <CardHeader className="relative">
+          <CardHeader className="relative p-4 md:p-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-health-cyan)] to-[var(--color-health-teal)] flex items-center justify-center health-pulse">
-                <svg className="w-7 h-7 text-[var(--color-darker-bg)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-[var(--color-health-cyan)] to-[var(--color-health-teal)] flex items-center justify-center health-pulse">
+                <svg className="w-6 h-6 md:w-7 md:h-7 text-[var(--color-darker-bg)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <CardTitle className="text-4xl text-center">
+              <CardTitle className="text-2xl md:text-4xl text-center">
                 NutriScan
               </CardTitle>
             </div>
           </CardHeader>
           
-          <CardContent className="space-y-6 relative">
-            <div className="prose prose-invert max-w-none space-y-5 text-[var(--color-foreground)]/80 leading-relaxed">
-              <p className="text-lg">
-                Welcome to <span className="text-[var(--color-health-cyan)] font-semibold">NutriScan 2</span>, the frontier of post-human wellness.
+          <CardContent className="space-y-4 md:space-y-6 relative p-4 md:p-8">
+            <div className="prose prose-invert max-w-none space-y-4 md:space-y-5 text-[var(--color-foreground)]/80 leading-relaxed text-sm md:text-base">
+              <p>
+                Welcome to <span className="text-[var(--color-health-cyan)] font-semibold">NutriScan</span>, the frontier of post-human wellness.
               </p>
               
               <p>
@@ -51,26 +51,26 @@ export default function IntroPage() {
             </div>
 
             {/* Health Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-6 pb-4">
-              <div className="text-center p-4 rounded-xl bg-[var(--color-health-cyan)]/5 border border-[var(--color-health-cyan)]/10">
-                <div className="text-2xl font-bold text-[var(--color-health-cyan)]">99.9%</div>
-                <div className="text-xs text-muted-foreground mt-1">Accuracy</div>
+            <div className="grid grid-cols-3 gap-2 md:gap-4 pt-4 md:pt-6 pb-2 md:pb-4">
+              <div className="text-center p-2 md:p-4 rounded-xl bg-[var(--color-health-cyan)]/5 border border-[var(--color-health-cyan)]/10">
+                <div className="text-lg md:text-2xl font-bold text-[var(--color-health-cyan)]">99.9%</div>
+                <div className="text-[10px] md:text-xs text-muted-foreground mt-1">Accuracy</div>
               </div>
-              <div className="text-center p-4 rounded-xl bg-[var(--color-health-teal)]/5 border border-[var(--color-health-teal)]/10">
-                <div className="text-2xl font-bold text-[var(--color-health-teal)]">{'<'}1ms</div>
-                <div className="text-xs text-muted-foreground mt-1">Analysis</div>
+              <div className="text-center p-2 md:p-4 rounded-xl bg-[var(--color-health-teal)]/5 border border-[var(--color-health-teal)]/10">
+                <div className="text-lg md:text-2xl font-bold text-[var(--color-health-teal)]">{'<'}1ms</div>
+                <div className="text-[10px] md:text-xs text-muted-foreground mt-1">Analysis</div>
               </div>
-              <div className="text-center p-4 rounded-xl bg-[var(--color-health-cyan)]/5 border border-[var(--color-health-cyan)]/10">
-                <div className="text-2xl font-bold text-[var(--color-health-cyan)]">50K+</div>
-                <div className="text-xs text-muted-foreground mt-1">Compounds</div>
+              <div className="text-center p-2 md:p-4 rounded-xl bg-[var(--color-health-cyan)]/5 border border-[var(--color-health-cyan)]/10">
+                <div className="text-lg md:text-2xl font-bold text-[var(--color-health-cyan)]">50K+</div>
+                <div className="text-[10px] md:text-xs text-muted-foreground mt-1">Compounds</div>
               </div>
             </div>
             
-            <div className="flex justify-center pt-4">
+            <div className="flex justify-center pt-2 md:pt-4">
               <Link href="/scan">
                 <Button 
                   size="lg"
-                  className="text-lg px-12 py-6 h-auto font-semibold tracking-wide"
+                  className="text-base md:text-lg px-8 md:px-12 py-4 md:py-6 h-auto font-semibold tracking-wide w-full md:w-auto"
                 >
                   Begin Scan
                 </Button>

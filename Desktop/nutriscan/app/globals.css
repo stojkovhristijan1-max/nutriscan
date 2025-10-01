@@ -86,6 +86,39 @@ body::after {
   z-index: -1;
 }
 
+/* Mobile-optimized container */
+.container {
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
 /* Soft Glow Effects */
 .glow-text {
   text-shadow: 
@@ -254,4 +287,11 @@ body::after {
 
 .wave {
   animation: wave 1.5s ease-in-out infinite;
+}
+
+/* Mobile touch optimization */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
