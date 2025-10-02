@@ -45,6 +45,9 @@ body {
   font-family: var(--font-sans);
   position: relative;
   overflow-x: hidden;
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Animated Cyberpunk Background */
@@ -98,131 +101,28 @@ body::after {
   }
 }
 
-/* Glitch Effect for Text */
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-.glitch {
-  position: relative;
-  animation: glitch 0.3s infinite;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.8;
-}
-
-.glitch::before {
-  color: #00ffff;
-  z-index: -1;
-  animation: glitchTop 0.3s infinite;
-}
-
-.glitch::after {
-  color: #ff00ff;
-  z-index: -2;
-  animation: glitchBottom 0.4s infinite;
-}
-
-@keyframes glitchTop {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(2px, -2px);
-  }
-  40% {
-    transform: translate(-2px, 2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(-2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-@keyframes glitchBottom {
-  0% {
-    transform: translate(0);
-  }
-  25% {
-    transform: translate(-2px, 0);
-  }
-  50% {
-    transform: translate(2px, 0);
-  }
-  75% {
-    transform: translate(-2px, 0);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-/* Neon Glow */
+/* Neon Glow - Sharp and Clear */
 .neon-glow {
   text-shadow: 
     0 0 5px var(--color-cyber-cyan),
     0 0 10px var(--color-cyber-cyan),
     0 0 20px var(--color-cyber-cyan),
-    0 0 40px var(--color-cyber-teal),
-    0 0 80px var(--color-cyber-teal);
-  animation: flicker 2s infinite alternate;
-}
-
-@keyframes flicker {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    text-shadow: 
-      0 0 5px var(--color-cyber-cyan),
-      0 0 10px var(--color-cyber-cyan),
-      0 0 20px var(--color-cyber-cyan),
-      0 0 40px var(--color-cyber-teal),
-      0 0 80px var(--color-cyber-teal);
-  }
-  20%, 24%, 55% {
-    text-shadow: none;
-  }
+    0 0 40px var(--color-cyber-teal);
+  filter: none;
 }
 
 .glow-text {
   text-shadow: 
     0 0 10px var(--color-cyber-cyan),
-    0 0 20px var(--color-cyber-cyan),
-    0 0 30px var(--color-cyber-teal);
+    0 0 20px var(--color-cyber-cyan);
+  filter: none;
 }
 
 .glow-text-soft {
   text-shadow: 
     0 0 5px var(--color-cyber-cyan),
     0 0 10px var(--color-cyber-cyan);
+  filter: none;
 }
 
 /* Box Glow */
@@ -378,24 +278,6 @@ body::after {
   box-shadow: 0 0 10px var(--color-cyber-cyan);
 }
 
-/* RGB Split Effect */
-@keyframes rgbSplit {
-  0%, 100% {
-    text-shadow: 
-      -2px 0 0 rgba(255, 0, 0, 0.5),
-      2px 0 0 rgba(0, 255, 255, 0.5);
-  }
-  50% {
-    text-shadow: 
-      2px 0 0 rgba(255, 0, 0, 0.5),
-      -2px 0 0 rgba(0, 255, 255, 0.5);
-  }
-}
-
-.rgb-split {
-  animation: rgbSplit 1s infinite;
-}
-
 /* Mobile touch optimization */
 @media (hover: none) and (pointer: coarse) {
   button, a {
@@ -421,4 +303,10 @@ body::after {
   z-index: -1;
   filter: blur(10px);
   opacity: 0.5;
+}
+
+/* Ensure images are crisp */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
