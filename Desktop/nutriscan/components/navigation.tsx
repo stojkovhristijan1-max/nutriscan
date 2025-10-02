@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 
 export function Navigation() {
   return (
@@ -8,8 +9,14 @@ export function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-14 md:h-16">
           <Link href="/" className="text-lg md:text-xl font-bold flex items-center gap-2">
-            <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-[var(--color-cyber-cyan)] flex items-center justify-center bg-[var(--color-cyber-cyan)]/10 flex-shrink-0">
-              <span className="text-[var(--color-cyber-cyan)] font-bold text-xs">UNO</span>
+            <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center flex-shrink-0">
+              <Image 
+                src="/uno-logo.png" 
+                alt="UNO" 
+                width={40}
+                height={40}
+                className="object-contain"
+              />
             </div>
             <span className="text-[var(--color-cyber-cyan)] neon-glow uppercase tracking-wider">
               NutriScan
