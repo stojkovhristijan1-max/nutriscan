@@ -121,12 +121,12 @@ export default function Home() {
           transition={{ delay: 0.7, duration: 0.8 }}
           className="px-4"
         >
-          <Link href="/intro">
+          <Link href="/questionnaire">
             <Button 
               size="lg" 
               className="text-lg md:text-xl px-12 md:px-16 py-6 md:py-8 h-auto font-bold tracking-wider shadow-2xl shadow-[var(--color-health-cyan)]/20 hover:shadow-[var(--color-health-cyan)]/40 w-full sm:w-auto"
             >
-              START SCAN
+              INITIALIZE SCAN
             </Button>
           </Link>
         </motion.div>
