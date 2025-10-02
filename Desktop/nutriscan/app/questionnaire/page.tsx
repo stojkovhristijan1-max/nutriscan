@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Sun, Cpu, Brain, Shield, AlertTriangle } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { UnoSmallLogo } from "@/components/uno-header";
+import Image from "next/image";
 
 export default function QuestionnairePage() {
   const router = useRouter();
@@ -45,33 +47,43 @@ export default function QuestionnairePage() {
         transition={{ duration: 0.6 }}
         className="w-full max-w-4xl"
       >
-        <Card className="relative overflow-hidden border-2 border-[var(--color-health-cyan)]/30">
+        <Card className="relative overflow-hidden border-2 border-[var(--color-uno-secondary)]/30">
+          {/* UNO Logo Watermark */}
+          <div className="absolute top-4 right-4 opacity-10">
+            <Image src="/uno-logo.png" alt="UNO" width={80} height={80} />
+          </div>
           {/* Scanline effect */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-health-cyan)]/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-uno-secondary)]/5 to-transparent pointer-events-none" />
           
           <CardHeader className="relative p-4 md:p-8 pb-4 md:pb-6">
-            <div className="text-center space-y-2">
-              <CardTitle className="text-3xl md:text-4xl font-bold tracking-wider">
-                PRE-SCAN COMPLIANCE CHECK
-              </CardTitle>
-              <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-[var(--color-health-teal)] font-mono">
-                <span>PROTOCOL v2.077</span>
-                <span className="text-[var(--color-health-cyan)]">//</span>
-                <span>MANDATORY SCREENING</span>
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <UnoSmallLogo size={36} />
+              <div className="text-center space-y-2">
+                <CardTitle className="text-3xl md:text-4xl font-bold tracking-wider">
+                  PRE-SCAN COMPLIANCE CHECK
+                </CardTitle>
+                <div className="flex items-center justify-center gap-2 text-xs md:text-sm text-[var(--color-uno-accent)] font-mono">
+                  <span>UNO PROTOCOL v2.077</span>
+                  <span className="text-[var(--color-uno-secondary)]">//</span>
+                  <span>MANDATORY SCREENING</span>
+                </div>
               </div>
             </div>
+            <p className="text-center text-xs text-[var(--color-uno-primary)] italic mt-2">
+              "Compliance ensures collective wellness"
+            </p>
           </CardHeader>
           
           <CardContent className="space-y-6 p-4 md:p-8 relative">
             {/* Context Description */}
             <div 
-              className="p-4 md:p-5 rounded-xl border-2 border-[var(--color-health-cyan)]/30 bg-[var(--color-darker-bg)]/80 backdrop-blur-sm"
+              className="p-4 md:p-5 rounded-xl border-2 border-[var(--color-uno-secondary)]/30 bg-[var(--color-darker-bg)]/80 backdrop-blur-sm"
               style={{
-                boxShadow: '0 0 20px rgba(0, 217, 255, 0.1), inset 0 0 20px rgba(0, 217, 255, 0.05)'
+                boxShadow: '0 0 20px rgba(0, 201, 184, 0.1), inset 0 0 20px rgba(0, 201, 184, 0.05)'
               }}
             >
               <div className="flex items-start gap-3">
-                <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-health-cyan)] flex-shrink-0 mt-0.5" />
+                <AlertTriangle className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-uno-secondary)] flex-shrink-0 mt-0.5" />
                 <div className="text-xs md:text-sm text-[var(--color-foreground)]/80 leading-relaxed space-y-2">
                   <p>
                     Following Protocol 2040 amendments and the atmospheric recalibration initiatives, all citizens must complete mandatory wellness verification. Current environmental parameters require enhanced nutrient monitoring.
@@ -81,12 +93,12 @@ export default function QuestionnairePage() {
             </div>
 
             {/* Question 1: Sun Exposure */}
-            <div className="p-4 md:p-5 rounded-xl border border-[var(--color-health-cyan)]/20 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-health-cyan)]/40 transition-all">
+            <div className="p-4 md:p-5 rounded-xl border border-[var(--color-uno-secondary)]/20 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-uno-secondary)]/40 transition-all">
               <div className="flex items-start gap-3 mb-4">
-                <Sun className="w-5 h-5 text-[var(--color-health-cyan)] flex-shrink-0 mt-1" />
+                <Sun className="w-5 h-5 text-[var(--color-uno-secondary)] flex-shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[var(--color-health-teal)] font-mono text-sm">Q1:</span>
+                    <span className="text-[var(--color-uno-accent)] font-mono text-sm">Q1:</span>
                     <label className="text-sm md:text-base font-medium">
                       Daily solar exposure duration (hours)
                     </label>
@@ -96,7 +108,7 @@ export default function QuestionnairePage() {
               
               <div className="space-y-4 pl-8">
                 <div className="flex items-center gap-4">
-                  <span className="text-2xl md:text-3xl font-bold text-[var(--color-health-cyan)] min-w-[80px] text-center">
+                  <span className="text-2xl md:text-3xl font-bold text-[var(--color-uno-secondary)] min-w-[80px] text-center">
                     {sunHours.toFixed(1)}h
                   </span>
                 </div>
@@ -111,8 +123,8 @@ export default function QuestionnairePage() {
                     className="w-full h-2 rounded-lg appearance-none cursor-pointer slider"
                     style={{
                       background: `linear-gradient(to right, 
-                        var(--color-health-cyan) 0%, 
-                        var(--color-health-teal) ${(sunHours / 3) * 100}%, 
+                        var(--color-uno-secondary) 0%, 
+                        var(--color-uno-accent) ${(sunHours / 3) * 100}%, 
                         rgba(30, 39, 57, 0.5) ${(sunHours / 3) * 100}%, 
                         rgba(30, 39, 57, 0.5) 100%)`
                     }}
@@ -127,12 +139,12 @@ export default function QuestionnairePage() {
             </div>
 
             {/* Question 2: Implants */}
-            <div className="p-4 md:p-5 rounded-xl border border-[var(--color-health-cyan)]/20 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-health-cyan)]/40 transition-all">
+            <div className="p-4 md:p-5 rounded-xl border border-[var(--color-uno-secondary)]/20 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-uno-secondary)]/40 transition-all">
               <div className="flex items-start gap-3 mb-4">
-                <Cpu className="w-5 h-5 text-[var(--color-health-cyan)] flex-shrink-0 mt-1" />
+                <Cpu className="w-5 h-5 text-[var(--color-uno-secondary)] flex-shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[var(--color-health-teal)] font-mono text-sm">Q2:</span>
+                    <span className="text-[var(--color-uno-accent)] font-mono text-sm">Q2:</span>
                     <label className="text-sm md:text-base font-medium">
                       Do your implants ever glitch during high-stress moments?
                     </label>
@@ -145,8 +157,8 @@ export default function QuestionnairePage() {
                   onClick={() => setImplantsGlitch(true)}
                   className={`flex-1 px-4 md:px-6 py-3 rounded-lg border-2 font-semibold text-sm md:text-base transition-all ${
                     implantsGlitch === true
-                      ? 'border-[var(--color-health-cyan)] bg-[var(--color-health-cyan)]/10 text-[var(--color-health-cyan)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
-                      : 'border-[var(--color-health-cyan)]/20 text-muted-foreground hover:border-[var(--color-health-cyan)]/40'
+                      ? 'border-[var(--color-uno-secondary)] bg-[var(--color-uno-secondary)]/10 text-[var(--color-uno-secondary)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
+                      : 'border-[var(--color-uno-secondary)]/20 text-muted-foreground hover:border-[var(--color-uno-secondary)]/40'
                   }`}
                 >
                   YES
@@ -155,8 +167,8 @@ export default function QuestionnairePage() {
                   onClick={() => setImplantsGlitch(false)}
                   className={`flex-1 px-4 md:px-6 py-3 rounded-lg border-2 font-semibold text-sm md:text-base transition-all ${
                     implantsGlitch === false
-                      ? 'border-[var(--color-health-cyan)] bg-[var(--color-health-cyan)]/10 text-[var(--color-health-cyan)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
-                      : 'border-[var(--color-health-cyan)]/20 text-muted-foreground hover:border-[var(--color-health-cyan)]/40'
+                      ? 'border-[var(--color-uno-secondary)] bg-[var(--color-uno-secondary)]/10 text-[var(--color-uno-secondary)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
+                      : 'border-[var(--color-uno-secondary)]/20 text-muted-foreground hover:border-[var(--color-uno-secondary)]/40'
                   }`}
                 >
                   NO
@@ -165,12 +177,12 @@ export default function QuestionnairePage() {
             </div>
 
             {/* Question 3: Mood Shifts */}
-            <div className="p-4 md:p-5 rounded-xl border border-[var(--color-health-cyan)]/20 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-health-cyan)]/40 transition-all">
+            <div className="p-4 md:p-5 rounded-xl border border-[var(--color-uno-secondary)]/20 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-uno-secondary)]/40 transition-all">
               <div className="flex items-start gap-3 mb-4">
-                <Brain className="w-5 h-5 text-[var(--color-health-cyan)] flex-shrink-0 mt-1" />
+                <Brain className="w-5 h-5 text-[var(--color-uno-secondary)] flex-shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[var(--color-health-teal)] font-mono text-sm">Q3:</span>
+                    <span className="text-[var(--color-uno-accent)] font-mono text-sm">Q3:</span>
                     <label className="text-sm md:text-base font-medium">
                       Have you experienced unauthorized mood shifts in the past 72 hours?
                     </label>
@@ -183,8 +195,8 @@ export default function QuestionnairePage() {
                   onClick={() => setMoodShifts(true)}
                   className={`flex-1 px-4 md:px-6 py-3 rounded-lg border-2 font-semibold text-sm md:text-base transition-all ${
                     moodShifts === true
-                      ? 'border-[var(--color-health-cyan)] bg-[var(--color-health-cyan)]/10 text-[var(--color-health-cyan)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
-                      : 'border-[var(--color-health-cyan)]/20 text-muted-foreground hover:border-[var(--color-health-cyan)]/40'
+                      ? 'border-[var(--color-uno-secondary)] bg-[var(--color-uno-secondary)]/10 text-[var(--color-uno-secondary)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
+                      : 'border-[var(--color-uno-secondary)]/20 text-muted-foreground hover:border-[var(--color-uno-secondary)]/40'
                   }`}
                 >
                   YES
@@ -193,8 +205,8 @@ export default function QuestionnairePage() {
                   onClick={() => setMoodShifts(false)}
                   className={`flex-1 px-4 md:px-6 py-3 rounded-lg border-2 font-semibold text-sm md:text-base transition-all ${
                     moodShifts === false
-                      ? 'border-[var(--color-health-cyan)] bg-[var(--color-health-cyan)]/10 text-[var(--color-health-cyan)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
-                      : 'border-[var(--color-health-cyan)]/20 text-muted-foreground hover:border-[var(--color-health-cyan)]/40'
+                      ? 'border-[var(--color-uno-secondary)] bg-[var(--color-uno-secondary)]/10 text-[var(--color-uno-secondary)] shadow-[0_0_20px_rgba(0,217,255,0.3)]'
+                      : 'border-[var(--color-uno-secondary)]/20 text-muted-foreground hover:border-[var(--color-uno-secondary)]/40'
                   }`}
                 >
                   NO
@@ -203,17 +215,17 @@ export default function QuestionnairePage() {
             </div>
 
             {/* Question 4: Compliance (CRITICAL) */}
-            <div className="p-4 md:p-5 rounded-xl border-2 border-[var(--color-health-teal)]/40 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-health-teal)]/60 transition-all">
+            <div className="p-4 md:p-5 rounded-xl border-2 border-[var(--color-uno-accent)]/40 bg-[var(--color-card-bg)]/50 hover:border-[var(--color-uno-accent)]/60 transition-all">
               <div className="flex items-start gap-3 mb-4">
-                <Shield className="w-5 h-5 text-[var(--color-health-teal)] flex-shrink-0 mt-1" />
+                <Shield className="w-5 h-5 text-[var(--color-uno-accent)] flex-shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-[var(--color-health-teal)] font-mono text-sm">Q4:</span>
+                    <span className="text-[var(--color-uno-accent)] font-mono text-sm">Q4:</span>
                     <label className="text-sm md:text-base font-medium">
                       Are you currently in compliance with your government's daily wellness directive?
                     </label>
                   </div>
-                  <span className="text-xs text-[var(--color-health-teal)]">CRITICAL AUTHORIZATION</span>
+                  <span className="text-xs text-[var(--color-uno-accent)]">CRITICAL AUTHORIZATION</span>
                 </div>
               </div>
               
@@ -222,8 +234,8 @@ export default function QuestionnairePage() {
                   onClick={() => setCompliance(true)}
                   className={`flex-1 px-4 md:px-6 py-3 rounded-lg border-2 font-semibold text-sm md:text-base transition-all ${
                     compliance === true
-                      ? 'border-[var(--color-health-teal)] bg-[var(--color-health-teal)]/10 text-[var(--color-health-teal)] shadow-[0_0_20px_rgba(0,255,200,0.3)]'
-                      : 'border-[var(--color-health-cyan)]/20 text-muted-foreground hover:border-[var(--color-health-cyan)]/40'
+                      ? 'border-[var(--color-uno-accent)] bg-[var(--color-uno-accent)]/10 text-[var(--color-uno-accent)] shadow-[0_0_20px_rgba(0,255,200,0.3)]'
+                      : 'border-[var(--color-uno-secondary)]/20 text-muted-foreground hover:border-[var(--color-uno-secondary)]/40'
                   }`}
                 >
                   YES
@@ -233,7 +245,7 @@ export default function QuestionnairePage() {
                   className={`flex-1 px-4 md:px-6 py-3 rounded-lg border-2 font-semibold text-sm md:text-base transition-all ${
                     compliance === false
                       ? 'border-red-500 bg-red-500/10 text-red-400 shadow-[0_0_20px_rgba(239,68,68,0.3)]'
-                      : 'border-[var(--color-health-cyan)]/20 text-muted-foreground hover:border-[var(--color-health-cyan)]/40'
+                      : 'border-[var(--color-uno-secondary)]/20 text-muted-foreground hover:border-[var(--color-uno-secondary)]/40'
                   }`}
                 >
                   NO
@@ -280,6 +292,13 @@ export default function QuestionnairePage() {
                 {!allAnswered ? 'Complete All Questions' : 'PROCEED TO SCAN'}
               </Button>
             </div>
+
+            {/* UNO Footer Message */}
+            <div className="text-center mt-6 pt-4 border-t border-[var(--color-uno-secondary)]/20 text-xs text-[var(--color-muted-foreground)]">
+              <p className="text-[var(--color-uno-primary)] italic mb-1">"Honest reporting protects everyone"</p>
+              <p>Unified Nation Order | Ministry of Health</p>
+              <p className="mt-1 font-mono text-[10px]">Document logged at UNO Central Database | {new Date().toISOString()}</p>
+            </div>
           </CardContent>
         </Card>
       </motion.div>
@@ -291,29 +310,29 @@ export default function QuestionnairePage() {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--color-health-cyan);
+          background: var(--color-uno-secondary);
           cursor: pointer;
-          box-shadow: 0 0 15px var(--color-health-cyan);
-          border: 2px solid var(--color-health-teal);
+          box-shadow: 0 0 15px var(--color-uno-secondary);
+          border: 2px solid var(--color-uno-accent);
         }
         
         .slider::-moz-range-thumb {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: var(--color-health-cyan);
+          background: var(--color-uno-secondary);
           cursor: pointer;
-          box-shadow: 0 0 15px var(--color-health-cyan);
-          border: 2px solid var(--color-health-teal);
+          box-shadow: 0 0 15px var(--color-uno-secondary);
+          border: 2px solid var(--color-uno-accent);
         }
         
         .slider::-webkit-slider-thumb:hover {
-          box-shadow: 0 0 25px var(--color-health-cyan);
+          box-shadow: 0 0 25px var(--color-uno-secondary);
           transform: scale(1.1);
         }
         
         .slider::-moz-range-thumb:hover {
-          box-shadow: 0 0 25px var(--color-health-cyan);
+          box-shadow: 0 0 25px var(--color-uno-secondary);
           transform: scale(1.1);
         }
       `}</style>

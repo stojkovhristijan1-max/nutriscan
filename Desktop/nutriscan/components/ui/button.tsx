@@ -8,15 +8,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-[var(--color-health-cyan)] to-[var(--color-health-teal)] text-[var(--color-darker-bg)] hover:shadow-lg hover:shadow-[var(--color-health-cyan)]/30 hover:scale-105 font-semibold",
+          "bg-gradient-to-r from-[var(--color-uno-primary)] to-[var(--color-uno-secondary)] text-white hover:shadow-lg hover:shadow-[var(--color-uno-secondary)]/30 hover:scale-105 font-semibold",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border-2 border-[var(--color-health-cyan)]/50 bg-transparent text-[var(--color-health-cyan)] hover:bg-[var(--color-health-cyan)]/10 hover:border-[var(--color-health-cyan)]",
+          "border-2 border-[var(--color-uno-secondary)]/50 bg-transparent text-[var(--color-uno-secondary)] hover:bg-[var(--color-uno-secondary)]/10 hover:border-[var(--color-uno-secondary)]",
         secondary:
-          "bg-[var(--color-health-cyan)]/10 text-[var(--color-health-cyan)] border border-[var(--color-health-cyan)]/30 hover:bg-[var(--color-health-cyan)]/20",
+          "bg-[var(--color-uno-secondary)]/10 text-[var(--color-uno-secondary)] border border-[var(--color-uno-secondary)]/30 hover:bg-[var(--color-uno-secondary)]/20",
         ghost: "hover:bg-muted hover:text-accent-foreground",
-        link: "text-[var(--color-health-cyan)] underline-offset-4 hover:underline",
+        link: "text-[var(--color-uno-secondary)] underline-offset-4 hover:underline",
       },
       size: {
         default: "h-11 px-6 py-2",

@@ -1,32 +1,33 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Soft Health-Tech Color Palette */
-  --color-health-cyan: #00d9ff;
-  --color-health-teal: #00ffc8;
-  --color-health-blue: #4dd0e1;
+  /* UNO Government Color Palette - Extracted from Logo */
+  --color-uno-primary: #006B5D;
+  --color-uno-secondary: #00C9B8;
+  --color-uno-accent: #00E5D3;
+  --color-uno-dark: #004D40;
   --color-dark-bg: #0a0e1a;
   --color-darker-bg: #060811;
   --color-card-bg: #131825;
   
-  /* Base colors */
+  /* Base colors using UNO palette */
   --color-background: var(--color-dark-bg);
   --color-foreground: #e0f2f7;
   --color-card: var(--color-card-bg);
   --color-card-foreground: #e0f2f7;
-  --color-primary: var(--color-health-cyan);
-  --color-primary-foreground: #0a0e1a;
-  --color-secondary: var(--color-health-teal);
+  --color-primary: var(--color-uno-primary);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-uno-secondary);
   --color-secondary-foreground: #0a0e1a;
   --color-muted: #1e2739;
   --color-muted-foreground: #8b9dc3;
-  --color-accent: var(--color-health-cyan);
+  --color-accent: var(--color-uno-accent);
   --color-accent-foreground: #0a0e1a;
   --color-destructive: #ff4757;
   --color-destructive-foreground: #ffffff;
   --color-border: #1e2739;
   --color-input: #1e2739;
-  --color-ring: var(--color-health-cyan);
+  --color-ring: var(--color-uno-secondary);
   
   /* Radius */
   --radius: 0.75rem;
@@ -47,7 +48,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Soft Animated Gradient Background */
+/* Soft Animated Gradient Background with UNO colors */
 body::before {
   content: "";
   position: fixed;
@@ -55,8 +56,8 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at top, rgba(0, 217, 255, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom, rgba(0, 255, 200, 0.06) 0%, transparent 50%),
+  background: radial-gradient(ellipse at top, rgba(0, 107, 93, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at bottom, rgba(0, 201, 184, 0.06) 0%, transparent 50%),
               linear-gradient(180deg, var(--color-darker-bg) 0%, var(--color-dark-bg) 100%);
   animation: breathe 8s ease-in-out infinite;
   z-index: -2;
@@ -71,7 +72,7 @@ body::before {
   }
 }
 
-/* Subtle DNA Helix Pattern */
+/* Subtle Pattern */
 body::after {
   content: "";
   position: fixed;
@@ -80,8 +81,8 @@ body::after {
   right: 0;
   bottom: 0;
   background-image: 
-    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(0, 217, 255, 0.02) 100px, rgba(0, 217, 255, 0.02) 102px),
-    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(0, 255, 200, 0.02) 100px, rgba(0, 255, 200, 0.02) 102px);
+    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(0, 201, 184, 0.02) 100px, rgba(0, 201, 184, 0.02) 102px),
+    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(0, 201, 184, 0.02) 100px, rgba(0, 201, 184, 0.02) 102px);
   pointer-events: none;
   z-index: -1;
 }
@@ -119,18 +120,18 @@ body::after {
   }
 }
 
-/* Soft Glow Effects */
+/* Soft Glow Effects with UNO colors */
 .glow-text {
   text-shadow: 
-    0 0 20px rgba(0, 217, 255, 0.3),
-    0 0 40px rgba(0, 217, 255, 0.2),
-    0 0 60px rgba(0, 217, 255, 0.1);
+    0 0 20px rgba(0, 201, 184, 0.3),
+    0 0 40px rgba(0, 201, 184, 0.2),
+    0 0 60px rgba(0, 201, 184, 0.1);
 }
 
 .glow-text-soft {
   text-shadow: 
-    0 0 10px rgba(0, 217, 255, 0.2),
-    0 0 20px rgba(0, 217, 255, 0.1);
+    0 0 10px rgba(0, 201, 184, 0.2),
+    0 0 20px rgba(0, 201, 184, 0.1);
 }
 
 /* Health Pulse Animation */
@@ -175,14 +176,14 @@ body::after {
 /* Soft Ripple Effect */
 @keyframes ripple {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 217, 255, 0.4),
-                0 0 0 10px rgba(0, 217, 255, 0.3),
-                0 0 0 20px rgba(0, 217, 255, 0.2);
+    box-shadow: 0 0 0 0 rgba(0, 201, 184, 0.4),
+                0 0 0 10px rgba(0, 201, 184, 0.3),
+                0 0 0 20px rgba(0, 201, 184, 0.2);
   }
   100% {
-    box-shadow: 0 0 0 10px rgba(0, 217, 255, 0.3),
-                0 0 0 20px rgba(0, 217, 255, 0.2),
-                0 0 0 40px rgba(0, 217, 255, 0);
+    box-shadow: 0 0 0 10px rgba(0, 201, 184, 0.3),
+                0 0 0 20px rgba(0, 201, 184, 0.2),
+                0 0 0 40px rgba(0, 201, 184, 0);
   }
 }
 
@@ -227,7 +228,7 @@ body::after {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-health-cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--color-uno-secondary), transparent);
   animation: scan 3s ease-in-out infinite;
   pointer-events: none;
 }
@@ -269,10 +270,10 @@ body::after {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: var(--color-health-cyan);
+  background: var(--color-uno-secondary);
   border-radius: 50%;
   animation: particle-float 4s ease-in infinite;
-  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 201, 184, 0.5);
 }
 
 /* Wave Effect */
@@ -287,6 +288,20 @@ body::after {
 
 .wave {
   animation: wave 1.5s ease-in-out infinite;
+}
+
+/* Official Watermark */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 4rem;
+  font-weight: bold;
+  color: rgba(0, 201, 184, 0.03);
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
 }
 
 /* Mobile touch optimization */
