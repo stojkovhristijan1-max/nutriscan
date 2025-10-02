@@ -1,39 +1,38 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* UNO Government Color Palette - Extracted from Logo */
-  --color-uno-primary: #006B5D;
-  --color-uno-secondary: #00C9B8;
-  --color-uno-accent: #00E5D3;
-  --color-uno-dark: #004D40;
-  --color-dark-bg: #0a0e1a;
-  --color-darker-bg: #060811;
-  --color-card-bg: #131825;
+  /* Cyberpunk UNO Color Palette - From Logo */
+  --color-cyber-cyan: #00E5D3;
+  --color-cyber-teal: #00C9B8;
+  --color-cyber-dark: #006B5D;
+  --color-dark-bg: #050505;
+  --color-darker-bg: #000000;
+  --color-card-bg: #0a0a0a;
   
-  /* Base colors using UNO palette */
+  /* Base colors using bright cyberpunk palette */
   --color-background: var(--color-dark-bg);
-  --color-foreground: #e0f2f7;
+  --color-foreground: #e0fffc;
   --color-card: var(--color-card-bg);
-  --color-card-foreground: #e0f2f7;
-  --color-primary: var(--color-uno-primary);
-  --color-primary-foreground: #ffffff;
-  --color-secondary: var(--color-uno-secondary);
-  --color-secondary-foreground: #0a0e1a;
-  --color-muted: #1e2739;
-  --color-muted-foreground: #8b9dc3;
-  --color-accent: var(--color-uno-accent);
-  --color-accent-foreground: #0a0e1a;
-  --color-destructive: #ff4757;
+  --color-card-foreground: #e0fffc;
+  --color-primary: var(--color-cyber-cyan);
+  --color-primary-foreground: #000000;
+  --color-secondary: var(--color-cyber-teal);
+  --color-secondary-foreground: #000000;
+  --color-muted: #1a1a1a;
+  --color-muted-foreground: #6dd9d0;
+  --color-accent: var(--color-cyber-cyan);
+  --color-accent-foreground: #000000;
+  --color-destructive: #ff0055;
   --color-destructive-foreground: #ffffff;
-  --color-border: #1e2739;
-  --color-input: #1e2739;
-  --color-ring: var(--color-uno-secondary);
+  --color-border: #00c9b8;
+  --color-input: #1a1a1a;
+  --color-ring: var(--color-cyber-cyan);
   
   /* Radius */
-  --radius: 0.75rem;
+  --radius: 0rem;
   
   /* Fonts */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'Courier New', 'Consolas', monospace;
 }
 
 * {
@@ -41,14 +40,14 @@
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: #000000;
+  color: var(--color-cyber-cyan);
   font-family: var(--font-sans);
   position: relative;
   overflow-x: hidden;
 }
 
-/* Soft Animated Gradient Background with UNO colors */
+/* Animated Cyberpunk Background */
 body::before {
   content: "";
   position: fixed;
@@ -56,14 +55,15 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(ellipse at top, rgba(0, 107, 93, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom, rgba(0, 201, 184, 0.06) 0%, transparent 50%),
-              linear-gradient(180deg, var(--color-darker-bg) 0%, var(--color-dark-bg) 100%);
-  animation: breathe 8s ease-in-out infinite;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(0, 229, 211, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(0, 201, 184, 0.15) 0%, transparent 50%),
+    linear-gradient(180deg, #000000 0%, #050505 50%, #000000 100%);
+  animation: pulse 4s ease-in-out infinite;
   z-index: -2;
 }
 
-@keyframes breathe {
+@keyframes pulse {
   0%, 100% {
     opacity: 1;
   }
@@ -72,7 +72,7 @@ body::before {
   }
 }
 
-/* Subtle Pattern */
+/* Cyber Grid */
 body::after {
   content: "";
   position: fixed;
@@ -81,114 +81,211 @@ body::after {
   right: 0;
   bottom: 0;
   background-image: 
-    repeating-linear-gradient(90deg, transparent, transparent 100px, rgba(0, 201, 184, 0.02) 100px, rgba(0, 201, 184, 0.02) 102px),
-    repeating-linear-gradient(0deg, transparent, transparent 100px, rgba(0, 201, 184, 0.02) 100px, rgba(0, 201, 184, 0.02) 102px);
+    linear-gradient(rgba(0, 229, 211, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 211, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 20s linear infinite;
   pointer-events: none;
   z-index: -1;
 }
 
-/* Mobile-optimized container */
-.container {
-  max-width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
+@keyframes gridMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
   }
 }
 
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+/* Glitch Effect for Text */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
   }
 }
 
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
+.glitch {
+  position: relative;
+  animation: glitch 0.3s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch::before {
+  color: #00ffff;
+  z-index: -1;
+  animation: glitchTop 0.3s infinite;
+}
+
+.glitch::after {
+  color: #ff00ff;
+  z-index: -2;
+  animation: glitchBottom 0.4s infinite;
+}
+
+@keyframes glitchTop {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(2px, -2px);
+  }
+  40% {
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(-2px, -2px);
+  }
+  100% {
+    transform: translate(0);
   }
 }
 
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
+@keyframes glitchBottom {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-2px, 0);
+  }
+  50% {
+    transform: translate(2px, 0);
+  }
+  75% {
+    transform: translate(-2px, 0);
+  }
+  100% {
+    transform: translate(0);
   }
 }
 
-/* Soft Glow Effects with UNO colors */
+/* Neon Glow */
+.neon-glow {
+  text-shadow: 
+    0 0 5px var(--color-cyber-cyan),
+    0 0 10px var(--color-cyber-cyan),
+    0 0 20px var(--color-cyber-cyan),
+    0 0 40px var(--color-cyber-teal),
+    0 0 80px var(--color-cyber-teal);
+  animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 
+      0 0 5px var(--color-cyber-cyan),
+      0 0 10px var(--color-cyber-cyan),
+      0 0 20px var(--color-cyber-cyan),
+      0 0 40px var(--color-cyber-teal),
+      0 0 80px var(--color-cyber-teal);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
 .glow-text {
   text-shadow: 
-    0 0 20px rgba(0, 201, 184, 0.3),
-    0 0 40px rgba(0, 201, 184, 0.2),
-    0 0 60px rgba(0, 201, 184, 0.1);
+    0 0 10px var(--color-cyber-cyan),
+    0 0 20px var(--color-cyber-cyan),
+    0 0 30px var(--color-cyber-teal);
 }
 
 .glow-text-soft {
   text-shadow: 
-    0 0 10px rgba(0, 201, 184, 0.2),
-    0 0 20px rgba(0, 201, 184, 0.1);
+    0 0 5px var(--color-cyber-cyan),
+    0 0 10px var(--color-cyber-cyan);
 }
 
-/* Health Pulse Animation */
-@keyframes healthPulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.8;
-  }
+/* Box Glow */
+.box-glow {
+  box-shadow: 
+    0 0 5px var(--color-cyber-cyan),
+    0 0 10px var(--color-cyber-cyan),
+    0 0 15px var(--color-cyber-teal),
+    inset 0 0 10px rgba(0, 229, 211, 0.1);
 }
 
-.health-pulse {
-  animation: healthPulse 2s ease-in-out infinite;
-}
-
-/* Heartbeat Effect */
-@keyframes heartbeat {
-  0%, 100% {
-    transform: scale(1);
-  }
-  10% {
-    transform: scale(1.1);
-  }
-  20% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(1.1);
-  }
-  40% {
-    transform: scale(1);
-  }
-}
-
-.heartbeat {
-  animation: heartbeat 2s ease-in-out infinite;
-}
-
-/* Soft Ripple Effect */
-@keyframes ripple {
+/* Scanlines */
+@keyframes scanline {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 201, 184, 0.4),
-                0 0 0 10px rgba(0, 201, 184, 0.3),
-                0 0 0 20px rgba(0, 201, 184, 0.2);
+    transform: translateY(-100%);
   }
   100% {
-    box-shadow: 0 0 0 10px rgba(0, 201, 184, 0.3),
-                0 0 0 20px rgba(0, 201, 184, 0.2),
-                0 0 0 40px rgba(0, 201, 184, 0);
+    transform: translateY(100%);
   }
 }
 
-.ripple {
-  animation: ripple 2s ease-out infinite;
+.scanlines {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanlines::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    transparent 50%,
+    rgba(0, 229, 211, 0.05) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+  z-index: 1000;
+}
+
+/* Cyber Border Animation */
+@keyframes borderGlow {
+  0%, 100% {
+    border-color: var(--color-cyber-teal);
+    box-shadow: 
+      0 0 5px var(--color-cyber-cyan),
+      0 0 10px var(--color-cyber-cyan),
+      inset 0 0 5px rgba(0, 229, 211, 0.2);
+  }
+  50% {
+    border-color: var(--color-cyber-cyan);
+    box-shadow: 
+      0 0 10px var(--color-cyber-cyan),
+      0 0 20px var(--color-cyber-cyan),
+      inset 0 0 10px rgba(0, 229, 211, 0.3);
+  }
+}
+
+.cyber-border {
+  animation: borderGlow 2s ease-in-out infinite;
 }
 
 /* Floating Animation */
@@ -205,35 +302,40 @@ body::after {
   animation: float 3s ease-in-out infinite;
 }
 
-/* Scanning Line Effect */
-@keyframes scan {
-  0% {
-    top: 0%;
-    opacity: 0;
+/* Health Pulse */
+@keyframes healthPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  10% {
-    opacity: 0.5;
-  }
-  90% {
-    opacity: 0.5;
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
   }
 }
 
-.scanning-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-uno-secondary), transparent);
-  animation: scan 3s ease-in-out infinite;
-  pointer-events: none;
+.health-pulse {
+  animation: healthPulse 1.5s ease-in-out infinite;
 }
 
-/* DNA Strand Animation */
+/* Heartbeat */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.15);
+  }
+  20%, 40% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+/* DNA Strand */
 @keyframes dnaRotate {
   from {
     transform: rotateY(0deg);
@@ -248,7 +350,7 @@ body::after {
   transform-style: preserve-3d;
 }
 
-/* Soft Particle Effect */
+/* Particle Effect */
 @keyframes particle-float {
   0% {
     transform: translateY(0) translateX(0);
@@ -268,40 +370,30 @@ body::after {
 
 .particle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: var(--color-uno-secondary);
+  width: 2px;
+  height: 2px;
+  background: var(--color-cyber-cyan);
   border-radius: 50%;
   animation: particle-float 4s ease-in infinite;
-  box-shadow: 0 0 10px rgba(0, 201, 184, 0.5);
+  box-shadow: 0 0 10px var(--color-cyber-cyan);
 }
 
-/* Wave Effect */
-@keyframes wave {
+/* RGB Split Effect */
+@keyframes rgbSplit {
   0%, 100% {
-    transform: scaleY(1);
+    text-shadow: 
+      -2px 0 0 rgba(255, 0, 0, 0.5),
+      2px 0 0 rgba(0, 255, 255, 0.5);
   }
   50% {
-    transform: scaleY(1.3);
+    text-shadow: 
+      2px 0 0 rgba(255, 0, 0, 0.5),
+      -2px 0 0 rgba(0, 255, 255, 0.5);
   }
 }
 
-.wave {
-  animation: wave 1.5s ease-in-out infinite;
-}
-
-/* Official Watermark */
-.watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  font-size: 4rem;
-  font-weight: bold;
-  color: rgba(0, 201, 184, 0.03);
-  pointer-events: none;
-  white-space: nowrap;
-  user-select: none;
+.rgb-split {
+  animation: rgbSplit 1s infinite;
 }
 
 /* Mobile touch optimization */
@@ -309,4 +401,24 @@ body::after {
   button, a {
     -webkit-tap-highlight-color: transparent;
   }
+}
+
+/* Cyber Container */
+.cyber-container {
+  border: 2px solid var(--color-cyber-cyan);
+  background: rgba(0, 0, 0, 0.8);
+  position: relative;
+}
+
+.cyber-container::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--color-cyber-cyan), var(--color-cyber-teal));
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
 }

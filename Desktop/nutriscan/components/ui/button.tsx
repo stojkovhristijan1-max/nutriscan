@@ -3,25 +3,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 uppercase tracking-wider",
   {
     variants: {
       variant: {
         default:
-          "bg-gradient-to-r from-[var(--color-uno-primary)] to-[var(--color-uno-secondary)] text-white hover:shadow-lg hover:shadow-[var(--color-uno-secondary)]/30 hover:scale-105 font-semibold",
+          "bg-transparent border-2 border-[var(--color-cyber-cyan)] text-[var(--color-cyber-cyan)] hover:bg-[var(--color-cyber-cyan)] hover:text-black box-glow hover:scale-105 font-bold",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-black",
         outline:
-          "border-2 border-[var(--color-uno-secondary)]/50 bg-transparent text-[var(--color-uno-secondary)] hover:bg-[var(--color-uno-secondary)]/10 hover:border-[var(--color-uno-secondary)]",
+          "border-2 border-[var(--color-cyber-teal)] bg-transparent text-[var(--color-cyber-teal)] hover:bg-[var(--color-cyber-teal)] hover:text-black",
         secondary:
-          "bg-[var(--color-uno-secondary)]/10 text-[var(--color-uno-secondary)] border border-[var(--color-uno-secondary)]/30 hover:bg-[var(--color-uno-secondary)]/20",
-        ghost: "hover:bg-muted hover:text-accent-foreground",
-        link: "text-[var(--color-uno-secondary)] underline-offset-4 hover:underline",
+          "bg-[var(--color-cyber-cyan)]/20 text-[var(--color-cyber-cyan)] border-2 border-[var(--color-cyber-cyan)]/50 hover:border-[var(--color-cyber-cyan)] hover:bg-[var(--color-cyber-cyan)]/30",
+        ghost: "hover:bg-[var(--color-cyber-cyan)]/10 hover:text-[var(--color-cyber-cyan)]",
+        link: "text-[var(--color-cyber-cyan)] underline-offset-4 hover:underline",
       },
       size: {
         default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-lg px-4",
-        lg: "h-13 rounded-xl px-10",
+        sm: "h-9 px-4",
+        lg: "h-13 px-10",
         icon: "h-11 w-11",
       },
     },
